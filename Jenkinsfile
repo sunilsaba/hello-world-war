@@ -4,7 +4,7 @@ pipeline {
  stages {
       stage('checkout') {
            steps {             
-                git branch: 'master', url: 'https://github.com/sagartnaik/hello-world-war.git'             
+                git branch: 'master', url: 'https://github.com/sunilsaba/hello-world-war.git'             
           }
         }       
 
@@ -19,28 +19,28 @@ pipeline {
 stage('Login to Docker hub') {
            steps {
               
-                sh 'sudo docker login --username=sagartnaikdocker --password=Sagar@3692'
-                sh 'sudo docker tag testwebapp:latest sagartnaikdocker/testwebapp:latest'
+                sh 'sudo docker login --username=sunikdocker --password=8123059361Ss$'
+                sh 'sudo docker tag testwebapp:latest sunikdocker/testwebapp:latest'
           }
         }
      
   stage('Publish image to Docker Hub') {
           
             steps {
-       	  sh  'sudo docker push sagartnaikdocker/testwebapp:latest'  
+       	  sh  'sudo docker push sunikdocker/testwebapp:latest'  
         }                 
           
         }
 stage('pull') {
             steps {
-                sh 'sudo docker pull sagartnaikdocker/testwebapp:latest'
+                sh 'sudo docker pull sunikdocker/testwebapp:latest'
             }
         }     
       stage('Run Docker container on Jenkins Agent') {
              
             steps 
 	      {
-                sh "sudo docker run -d -p 8004:8080 sagartnaikdocker/testwebapp:latest"
+                sh "sudo docker run -d -p 8004:8080 sunikdocker/testwebapp:latest"
              }
         }
  
